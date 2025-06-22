@@ -1,0 +1,280 @@
+:root {
+  --color-one: rgb(206, 182, 228);
+  --color-two: transparent;
+}
+
+* {
+  margin: 0;
+  outline: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #000000;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(55, 19, 117, 1) 20%,
+    rgba(19, 117, 92, 1) 50%,
+    rgba(55, 19, 117, 1) 81%,
+    rgba(15, 14, 14, 1) 100%
+  );
+
+}
+.container {
+  width: 90rem;
+  background-color: white;
+  height: 70rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  background: radial-gradient(
+    circle,
+    rgba(55, 19, 117, 0.37) 51%,
+    rgba(55, 19, 117, 0.37) 60%
+  );
+  border-radius: 100rem;
+  overflow: hidden;
+}
+.result {
+  background-color: var(--color-two);
+  position: absolute;
+  bottom: 0;
+  width: 11rem;
+  height: 14rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.resultAgo {
+  background-color: var(--color-two);
+  color: white;
+  font-family: "poppins";
+  font-size: 2rem;
+  font-weight: 800;
+}
+.allResults {
+  background-color: var(--color-two);
+  color: white;
+  font-family: "poppins";
+  transform: rotate(-90deg);
+  font-weight: 700;
+  font-size: 1.3rem;
+  display: flex;
+
+  cursor: pointer;
+  z-index: 3;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: 0.5s ease-in-out;
+
+}
+.allResults.animation{
+  transform: translate(0, -40rem) rotate(90deg);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+.arrowTwo{
+  justify-self: start;
+  z-index: -1;
+
+}
+.arrowOne{
+  opacity: 0;
+  z-index: -1;
+
+}
+.allResults:hover .arrowTwo {
+  animation: arrowUpHover 0.6s ease-in-out alternate infinite;
+}
+.allResults:hover .arrowOne{
+  animation: broOpacity 0.6s ease-in-out alternate infinite;
+}
+
+@keyframes arrowUpHover{
+  from{
+    transform: rotate(0) translateX(-20%);
+    
+  } to{
+    transform: rotate(0) translateX(20%);
+    
+  }
+}
+@keyframes broOpacity{
+  from{
+    opacity: 1;
+    transform: rotate(0) translateX(-20%);
+    
+  } to{
+    opacity: 0;
+    transform: rotate(0) translateX(-20%);
+    
+  }
+}
+
+#Calc {
+  background-color: rgba(46, 16, 116, 0.192);
+  width: 20rem;
+  height: 25rem;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 50px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.desc_modal {
+  height: 10px;
+  font-size: 1rem;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transform: translateY(120%);
+  transition: 0.3s ease-in-out;
+}
+.desc {
+  background-color: #00000000;
+  padding: 1rem;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  font-weight: 800;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.desc:hover {
+  transform: scale(0.9);
+}
+.desc:hover + .desc_modal {
+  transition: 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.km_div,
+.Voyage_distance_div {
+  position: relative;
+  background-color: rgba(245, 222, 179, 0);
+  height: 3rem;
+  width: 13rem;
+}
+input.km,
+input.Voyage_distance {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(95, 158, 160, 0);
+  color: white;
+  font-size: 1.2rem;
+  padding: 2rem;
+}
+label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-20%) scale(1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+input:focus ~ label,
+input:user-valid ~ label {
+  transition: 0.2s ease-in-out;
+  transform: scale(0.8) translateY(0);
+  color: var(--color-one);
+  left: 0;
+  top: 0;
+}
+
+.km_div::after,
+.Voyage_distance_div::after {
+  content: "";
+  background-color: var(--color-one);
+  height: 1px;
+  position: absolute;
+  width: 0;
+  left: 0;
+  bottom: 0;
+  transition: 0.3s ease-in-out;
+}
+.km_div:hover::after,
+.Voyage_distance_div:hover::after {
+  background-color: white;
+  width: 100%;
+}
+
+.km_div:has(.km:focus)::after,
+.km_div:has(.km:user-valid)::after,
+.Voyage_distance_div:has(.Voyage_distance:focus)::after,
+.Voyage_distance_div:has(.Voyage_distance:user-valid)::after {
+  background-color: var(--color-one);
+  width: 100%;
+}
+
+.gasoline_types {
+  appearance: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 7rem;
+  height: 2rem;
+  border-radius: 50px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.158);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  font-family: "poppins", sans-serif;
+}
+.gasoline_types:hover {
+  transform: scale(1.05) translate(0, 10%);
+  background-color: white;
+}
+.gasoline_types:active {
+  transform: scale(0.95) translate(0, 10%);
+  background-color: var(--color-two);
+  border: 1px solid transparent;
+  color: var(--color-two);
+}
+
+.submit {
+  background-color: transparent;
+  color: white;
+  font-family: "poppins";
+  font-weight: 800;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.submit:hover {
+  transform: scale(1.1);
+}
+.submit:active {
+  transform: scale(0.9);
+  color: transparent;
+}
+
+.gs {
+  background-color: black;
+}

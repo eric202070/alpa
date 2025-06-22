@@ -1,29 +1,86 @@
-<html>
-  <body bgcolor = #D5BEFD>
-    
-  <body>
-    <text><center><b><font size = "20" face = 'comic sans ms' color = #010004>> Calcule o preço <</font></b></center></text>
-  
-    <b><font size = '10' face = 'comic sans ms' color = #010004><center>
-<br>  
-      <button onClick = 'fpe()' ><b><font size = '30' face = 'comic sans ms' color = #d5adf6>Clique  e Calcule</button></b></font>
-  <script type = 'text/javascript'>
-  
-  
-  function fpe(){
-    km=prompt('Quantos quilometros você vai andar?')
-    m=prompt('Quantos minutos você vai andar?')
-    vdc=parseInt(2+(km*1.4)+(m*0.26))
-     
-    alert('Seu valor deu ' + vdc.toFixed(2))
+<!DOCTYPE html>
+<html lang="en">
 
-    
-  }
-    </script></center></font></b>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<br>
-<br>
-<br>
-  </body>
-    
-</html>  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Major+Mono+Display&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway+Dots&family=Raleway:ital,wght@0,100..900;1,100..900&family=Share+Tech&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="modal.css">
+  <title>First Code</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+
+    <form id="Calc">
+
+      <p class="desc">Calcule</p>
+      <div class="desc_modal">
+        <p>Calcule o preco do combustivel</p>
+      </div>
+
+
+      <div class="km_div">
+        <input type="text" class="km" id="km" required>
+        <label for="km">Consumo medio(km/h)</label>
+      </div>
+      <div class="Voyage_distance_div">
+        <input type="text" class="Voyage_distance" id="Voyage_distance"  required>
+        <label for="Voyage_distance">Distancia da viagem(M)</label>
+      </div>
+      <select name="gasoline_types" class="gasoline_types" id="gasoline_types" title="Combustível" required>
+        <option value="Gasolina" class="gs">Gasolina</option>
+        <option value="Etanol" class="gs">Etanol</option>
+        <option value="Diesel" class="gs">Diesel</option>
+        <option value="Eletricidade" class="gs">Eletricidade</option>
+        <option value="Hidrogênio" class="gs">Hidrogênio</option>
+        <option value="GNV" class="gs">GNV</option>
+        <option value="GLP" class="gs">GLP</option>
+      </select>
+
+
+      <button type="submit" class="submit" id="submit">&gt;</button>
+
+    </form>
+
+
+    <div class="result" id="result">
+      <p class="resultAgo">12.39</p>
+      <div class="allResults">
+        <p class="arrowOne">&gt;</p>
+        <p class="arrowTwo">&gt;</p>
+      </div>
+
+    </div>
+
+    <div class="modal_results ">
+      <div class="insideModalResults">
+
+       <div class="content">
+          <div class="variables">
+            <p class="mediumConsume">km/h</p>
+            <p class="voyageDistance">distance</p>
+            <p class="fuelType">Type</p>
+          </div>
+          <p class="viableResult">Price</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+  <script src="modal.js"></script>
+
+
+</body>
+
+</html>
